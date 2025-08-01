@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Stories Feature</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <p class="title-text">📸 My Story Hub</p>
+
+    <div class="content-container">
+      <div id="story-list" class="story-list">
+        <!-- Story circles and + button will appear here -->
+      </div>
+    </div>
+
+    <div class="welcome-message">
+      <h2>Welcome to Stories 👋</h2>
+      <p>Share your moment before it fades</p>
+    </div>
+  </div>
+
+  <!-- Fullscreen story viewer modal -->
+<div id="story-modal" class="modal" style="display:none;">
+  <span id="modal-close" class="modal-close">&times;</span>
+  <div class="progress-bar-container">
+    <div id="progress-bar" class="progress-bar"></div>
+  </div>
+
+  <!-- New wrapper div -->
+  <div id="modal-content-wrapper" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+    <img id="modal-img" class="modal-content" alt="Story Image" />
+    <p id="caption" class="caption-text"></p>
+  </div>
+</div>
+
+
+  <!-- Caption input modal -->
+  <div id="caption-input-modal" class="modal" style="display:none; background-color: rgba(0,0,0,0.9); flex-direction: column; justify-content: center; align-items: center; padding: 20px;">
+    <div style="background: white; border-radius: 10px; padding: 20px; max-width: 300px; width: 90%;">
+      <h3>Enter a caption (optional)</h3>
+      <textarea id="caption-input" rows="3" style="width: 100%;"></textarea>
+      <div style="margin-top: 15px; text-align: right;">
+        <button id="caption-cancel">Cancel</button>
+        <button id="caption-save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden file input for upload -->
+  <input type="file" id="upload" accept="image/*" style="display: none;" />
+  <script src="script.js"></script>
+</body>
+</html>

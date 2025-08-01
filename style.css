@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.story-list {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  width: 700px;
+  margin: 0 auto 30px auto;
+}
+
+.story-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ddd;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.story-circle.add-button {
+  font-size: 48px;
+  font-weight: bold;
+  color: #555;
+  user-select: none;
+}
+
+@media (max-width: 400px) {
+  .story-circle {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Modal background */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+/* Modal image */
+.modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
+  cursor: pointer;
+}
+
+/* Close button */
+.modal-close {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1100;
+}
+
+/* Animated ring for unseen stories */
+@keyframes rotateRing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.story-circle.unseen {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-circle.unseen::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(
+    from 0deg,
+    hsla(0, 76%, 43%, 0.759) 0deg 90deg,
+    rgb(79, 7, 79) 90deg 180deg,
+    #0f0f71 180deg 270deg,
+    #706470 270deg 360deg
+  );
+  mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black calc(100% - 5px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black calc(100% - 5px));
+  animation: rotateRing 3s linear infinite;
+  z-index: 1;
+}
+
+.story-circle.unseen img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid white;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+/* Welcome message container with background image */
+.welcome-message {
+  position: relative;
+  width: 700px;
+  margin: 0 auto 30px auto;
+  padding: 20px;
+  height: 500px;
+  background-image: url('background.jpeg');
+  background-size: cover;
+  background-position: top center;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  user-select: none;
+  text-align: center;
+  font-weight: 500;
+}
+
+.welcome-message h2, 
+.welcome-message p {
+  margin: 0;
+  position: relative;
+  top: 20px;
+}
+.welcome-message p {
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+/* Progress bar styles */
+.progress-bar-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  z-index: 1101;
+}
+
+.progress-bar {
+  height: 100%;
+  background: white;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 50ms linear;
+}
+
+/* Updated Header Styling */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.title-text {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(90deg, hsl(267, 61%, 49%), #ff4b2b);
+  -webkit-background-clip : text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.caption-text {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  max-width: 90%;
+  word-wrap: break-word;
+  user-select: none;
+}
+/* Caption input modal overrides (already mostly set inline) */
+#caption-input-modal textarea {
+  font-size: 14px;
+  resize: vertical;
+}
+#caption-input-modal button {
+  cursor: pointer;
+  padding: 6px 12px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff4b2b;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+#caption-input-modal button:hover {
+  background-color: #e04324;
+}
+#caption-input-modal button#caption-cancel {
+  background-color: #777;
+}
+#caption-input-modal button#caption-cancel:hover {
+  background-color: #555;
+}
