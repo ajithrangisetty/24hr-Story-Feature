@@ -55,11 +55,14 @@ If I get time or need to enhance it later, I might add:
 
 ## 📱 Screenshots
 
-*(Add screenshots here if needed)*
+---<img width="600" height="700" alt="Home page" src="https://github.com/user-attachments/assets/ceac4bf4-8a5f-4151-b3c1-43bf479aafa8" />
+<img width="800" height="700" alt="uplaod page" src="https://github.com/user-attachments/assets/f00cd5a0-c081-4bf8-83fb-36a92d5a3adb" />
+<img width="600" height="700" alt="view page" src="https://github.com/user-attachments/assets/645bfc16-51f0-428c-affb-c93a3aa23a86" />
+<img width="401" height="286" alt="caption" src="https://github.com/user-attachments/assets/cbef5256-0ff9-49e6-8c17-1e9dc55fba58" />
 
----
 
 ## 👨‍💻 About Me
+
 
 I'm **Ajith**, a B.Tech CSE (AI) student at Anurag University.  
 I'm interested in AI, frontend development, and building cool, real-world projects.  
